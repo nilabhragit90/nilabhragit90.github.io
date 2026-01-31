@@ -10,6 +10,9 @@
 
   <!-- Optional Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Font Awesome for tech logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     body {
@@ -24,6 +27,74 @@
     }
     .section-padding {
       padding: 80px 0;
+    }
+    
+    /* Skills Section Styling */
+    .skill-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      border-color: #0d6efd;
+    }
+    
+    .skill-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      min-height: 60px;
+    }
+    
+    .skill-icon i {
+      font-size: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover .skill-icon i {
+      transform: scale(1.1);
+    }
+    
+    /* Tech-specific colors */
+    .fab.fa-html5 { color: #E34C26; }
+    .fab.fa-css3-alt { color: #1572B6; }
+    .fab.fa-js { color: #F7DF1E; }
+    .fab.fa-bootstrap { color: #7952B3; }
+    .fab.fa-react { color: #61DAFB; }
+    .fab.fa-node-js { color: #339933; }
+    .fab.fa-python { color: #3776AB; }
+    .fab.fa-git-alt { color: #F05032; }
+    .fab.fa-github { color: #181717; }
+    .fab.fa-laravel { color: #FF2D20; }
+    .fab.fa-vuejs { color: #4FC08D; }
+    .fab.fa-php { color: #777BB4; }
+    .fab.fa-aws { color: #232F3E; }
+    .fab.fa-docker { color: #2496ED; }
+    .fab.fa-npm { color: #CB3837; }
+    .fas.fa-database { color: #336791; }
+    .fas.fa-leaf { color: #47A248; }
+    
+    .skill-card h5 {
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    #skills h2 {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 3rem;
     }
   </style>
 </head>
@@ -74,22 +145,125 @@
 <!-- Skills -->
 <section id="skills" class="section-padding bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Skills</h2>
-    <div class="row text-center">
-      <div class="col-md-3 mb-3">HTML / CSS / JavaScript</div>
-      <div class="col-md-3 mb-3">Bootstrap / React</div>
-      <div class="col-md-3 mb-3">Node.js / Python</div>
-      <div class="col-md-3 mb-3">Git / GitHub</div>
-      <div class="col-md-3 mb-3">Laravel</div>
-      <div class="col-md-3 mb-3">Vue.js</div>
-      <div class="col-md-3 mb-3">PHP</div>
-      <div class="col-md-3 mb-3">AWS</div>
-      <div class="col-md-3 mb-3">Docker</div>
-      <div class="col-md-3 mb-3">MySQL</div>
-      <div class="col-md-3 mb-3">PostgreSQL</div>
-      <div class="col-md-3 mb-3">MongoDB</div>
-      <div class="col-md-3 mb-3">npm</div>
-      <div class="col-md-3 mb-3">React Native</div>
+    <h2 class="text-center mb-5">Skills & Technologies</h2>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+            <i class="fab fa-js"></i>
+          </div>
+          <h5>HTML/CSS/JS</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-bootstrap"></i>
+            <i class="fab fa-react"></i>
+          </div>
+          <h5>Bootstrap/React</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-node-js"></i>
+            <i class="fab fa-python"></i>
+          </div>
+          <h5>Node.js/Python</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-git-alt"></i>
+            <i class="fab fa-github"></i>
+          </div>
+          <h5>Git/GitHub</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-laravel"></i>
+          </div>
+          <h5>Laravel</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-vuejs"></i>
+          </div>
+          <h5>Vue.js</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-php"></i>
+          </div>
+          <h5>PHP</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-aws"></i>
+          </div>
+          <h5>AWS</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-docker"></i>
+          </div>
+          <h5>Docker</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h5>MySQL</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h5>PostgreSQL</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h5>MongoDB</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-npm"></i>
+          </div>
+          <h5>npm</h5>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <h5>React Native</h5>
+        </div>
+      </div>
     </div>
   </div>
 </section>
