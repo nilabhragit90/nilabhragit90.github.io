@@ -111,16 +111,32 @@
               </div>
             </div>
             
-            <!-- Step 3 -->
+            <!-- Step 3 (New) -->
             <div id="step3" class="puzzle-step" style="display: none;">
-              <h4>Step 3: Almost There!</h4>
-              <p>Click the button to reveal the surprise...</p>
-              <button class="btn btn-warning btn-lg mt-4" onclick="nextStep(3)">Show Me!</button>
+              <h4>Step 3: A Simple Riddle</h4>
+              <p>I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
+              <input type="text" id="riddleAnswer" class="form-control mt-4" placeholder="Your answer">
+              <button class="btn btn-success btn-lg mt-3" onclick="checkRiddle()">Submit</button>
+            </div>
+
+            <!-- Step 4 (New) -->
+            <div id="step4" class="puzzle-step" style="display: none;">
+              <h4>Step 4: The Button Challenge</h4>
+              <p>Click the button exactly 3 times to proceed!</p>
+              <button id="clickChallengeBtn" class="btn btn-info btn-lg mt-4" onclick="handleButtonClick()">Click Me!</button>
+              <p id="clickCount" class="mt-2">Clicks: 0</p>
             </div>
             
-            <!-- Step 4 -->
-            <div id="step4" class="puzzle-step" style="display: none;">
-              <h4>Step 4: Final Countdown</h4>
+            <!-- Step 5 (Formerly Step 3) -->
+            <div id="step5" class="puzzle-step" style="display: none;">
+              <h4>Step 5: Almost There!</h4>
+              <p>Click the button to reveal the surprise...</p>
+              <button class="btn btn-warning btn-lg mt-4" onclick="nextStep(5)">Show Me!</button>
+            </div>
+            
+            <!-- Step 6 (Formerly Step 4) -->
+            <div id="step6" class="puzzle-step" style="display: none;">
+              <h4>Step 6: Final Countdown</h4>
               <p id="countdown" style="font-size: 3rem; font-weight: bold;">3...</p>
             </div>
             
@@ -180,10 +196,18 @@
       document.getElementById('step3').style.display = 'flex';
       document.getElementById('step3').style.flexDirection = 'column';
       document.getElementById('step3').style.alignItems = 'center';
-    } else if (step === 3) {
+    } else if (step === 3) { // New Step 3: Riddle
       document.getElementById('step4').style.display = 'flex';
       document.getElementById('step4').style.flexDirection = 'column';
       document.getElementById('step4').style.alignItems = 'center';
+    } else if (step === 4) { // New Step 4: Button Challenge
+      document.getElementById('step5').style.display = 'flex';
+      document.getElementById('step5').style.flexDirection = 'column';
+      document.getElementById('step5').style.alignItems = 'center';
+    } else if (step === 5) { // Formerly Step 3
+      document.getElementById('step6').style.display = 'flex';
+      document.getElementById('step6').style.flexDirection = 'column';
+      document.getElementById('step6').style.alignItems = 'center';
       
       // Countdown animation
       let countdown = 3;
@@ -247,6 +271,40 @@
     setTimeout(() => {
       step2.style.animation = '';
     }, 500);
+  }
+
+  function checkRiddle() {
+    const answerInput = document.getElementById('riddleAnswer');
+    const answer = answerInput.value.trim().toLowerCase();
+    if (answer === 'echo' || answer === 'wind') { // Correct answers for "I speak without a mouth..."
+      nextStep(3); // Move to the next step (Step 4 in the new numbering)
+    } else {
+      answerInput.value = ''; // Clear input
+      answerInput.placeholder = 'Try again!';
+      answerInput.classList.add('is-invalid'); // Add visual feedback for wrong answer
+      setTimeout(() => {
+        answerInput.classList.remove('is-invalid');
+      }, 1000);
+    }
+  }
+  let clickCount = 0;
+  function handleButtonClick() {
+    clickCount++;
+    document.getElementById('clickCount').textContent = `Clicks: ${clickCount}`;
+
+    if (clickCount === 3) {
+      nextStep(4); // Move to the next step (Step 5 in the new numbering)
+      clickCount = 0; // Reset for potential re-play
+    } else if (clickCount > 3) {
+      // Reset if clicked more than 3 times
+      clickCount = 0;
+      document.getElementById('clickCount').textContent = `Clicks: ${clickCount}`;
+      const clickBtn = document.getElementById('clickChallengeBtn');
+      clickBtn.classList.add('btn-danger');
+      setTimeout(() => {
+        clickBtn.classList.remove('btn-danger');
+      }, 1000);
+    }
   }
 </script>
 </body>
