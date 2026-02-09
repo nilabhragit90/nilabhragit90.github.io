@@ -142,7 +142,10 @@
             
             <!-- Final Step -->
             <div id="puzzleFinal" class="puzzle-step" style="display: none; width: 100%;">
-              <h4>ðŸŽ‰ Surprise! 😛 ðŸŽ‰</h4>
+              <div id="surpriseMessage" style="display: none;">
+                <h4>🎉 Surprise! 😛 🎉</h4>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; color: #f5576c;">you have been rickrolled!!</p>
+              </div>
               <div class="mt-4" style="width: 100%; max-width: 800px; margin: 0 auto;" id="youtubeContainer">
                 <!-- YouTube iframe will be dynamically added here -->
               </div>
@@ -255,6 +258,11 @@
               
               // Append video to container
               youtubeContainer.appendChild(video);
+
+              // Show surprise message only when video starts playing
+              video.addEventListener('play', () => {
+                document.getElementById('surpriseMessage').style.display = 'block';
+              });
             }
           }, 500);
         }
