@@ -93,7 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
   muteIcon = muteToggle.querySelector('i');
 
   // Show the popup after a short delay to create user interest (as requested)
-  setTimeout(showPopup, 1000);
+  // Only show the popup if it hasn't been shown in this session yet
+  if (!sessionStorage.getItem('videoPopupShown')) {
+    setTimeout(() => {
+      showPopup();
+      sessionStorage.setItem('videoPopupShown', 'true');
+    }, 1000);
+  }
   
   // Close popup when close button is clicked
   if (closeButton) {
